@@ -21,3 +21,5 @@ Bu proje, akıllı sulama sistemleri geliştirmeyi hedeflemektedir. Proje süres
 ## Altyapı
 - [HTML](https://html.com/)
 - [Python](https://www.python.org/doc/)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
