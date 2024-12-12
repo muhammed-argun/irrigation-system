@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="teknik-detaylar.html">Teknik Detaylar</a></li>
+                <li><a href="proje-surecleri.html">Proje Süreçleri</a></li>
+                <li><a href="galeri.html">Galeri</a></li>
+                <li><a href="sunuf-poster.html">Sunuf ve Poster</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Galeri</h1>
+        <p>Projemizle ilgili fotoğraflar:</p>
+        <div class="gallery">
+            <img src="assets/images/ProjeSurec1.jpg" alt="Galeri Resmi 1 " class="zoomable">
+            <img src="assets/images/ProjeSurec2.jpg" alt="Galeri Resmi 2 " class="zoomable">
+            <img src="assets/images/ProjeSurec3.jpg" alt="Galeri Resmi 3 " class="zoomable">
+            <img src="assets/images/ProjeSurec4.jpg" alt="Galeri Resmi 4 " class="zoomable">
+            <img src="assets/images/ProjeSurec5.jpg" alt="Galeri Resmi 4 " class="zoomable">
+        </div>
+        <br><br>
+        <div class="gallery">
+            <img src="assets/images/ProjeSurec6.jpg" alt="Galeri Resmi 4 " class="zoomable">
+            <img src="assets/images/ProjeSurec7.jpg" alt="Galeri Resmi 4 " class="zoomable">
+            <img src="assets/images/ProjeSurec8.jpg" alt="Galeri Resmi 4 " class="zoomable">
+            <img src="assets/images/ProjeSurec9.jpg" alt="Galeri Resmi 4 " class="zoomable">
+
+        </div>
+        <p>Projemizle ilgili videolar:</p>
+        <div class="gallery">
+            <!-- Video 1 -->
+            <video controls>
+                <source src="assets/videos/carmik.mp4" type="video/mp4">
+                Tarayıcınız bu videoyu desteklemiyor.
+            </video>
+            <!-- Video 2 -->
+            <video controls>
+                <source src="assets/videos/Graph.mp4" type="video/mp4">
+                Tarayıcınız bu videoyu desteklemiyor.
+            </video>
+            <!-- Video 3 -->
+            <!-- <video controls>
+                <source src="videos/video3.mp4" type="video/mp4">
+                Tarayıcınız bu videoyu desteklemiyor.
+            </video> -->
+        </div>
+    </main>
+
+    <div id="image-modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-image">
+        <div id="caption"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

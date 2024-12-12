@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teknik Detaylar</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="teknik-detaylar.html">Teknik Detaylar</a></li>
+                <li><a href="proje-surecleri.html">Proje Süreçleri</a></li>
+                <li><a href="galeri.html">Galeri</a></li>
+                <li><a href="sunuf-poster.html">Sunum ve Poster</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Teknik Detaylar</h1>
+        
+        <!-- Mikroişlemci yazılım modeli -->
+        <section>
+            <h2>Mikroişlemci Yazılım Modeli</h2>
+            <p>
+                Bu projede kullanılan mikroişlemci yazılım modeli, sensör verilerini işleyerek su pompasını kontrol eder.
+                Süreç şu şekilde işler: nem sensöründen gelen veriler GPIO pinleri üzerinden okunur ve işlenir.
+            </p>
+        </section>
+
+        <!-- Donanım Bileşenleri -->
+        <section>
+            <h2>Kullanılan Donanım Bileşenleri</h2>
+            <ul>
+                <li>Raspberry Pi</li>
+                <li>Nem Sensörü</li>
+                <li>Su Pompası</li>
+                <li>GPIO Bağlantıları</li>
+            </ul>
+        </section>
+
+        <!-- Kod Parçacıkları ve Algoritma -->
+        <section>
+            <h2>Kısa Kod Parçacıkları ve Algoritma</h2>
+            <p>Burada proje için kullanılan algoritma ve kod parçacıkları yer almaktadır:</p>
+            <h3 style="text-align: left; margin-bottom: 5px;">Nem Sensöründen Veri Okuma</h3>
+            <pre><code class="language-python">
+# Nem sensöründen veri okuma
+import RPi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BCM)
+SENSOR_PIN = 21
+
+GPIO.setup(SENSOR_PIN, GPIO.IN)
+
+if GPIO.input(SENSOR_PIN):
+    print("Toprak kuru, sulama başlatılıyor.")
+else:
+    print("Toprak nemli, sulama gerekli değil.")
+            </code></pre>
+            
+            <h3 style="text-align: left; margin-bottom: 5px;">Nem Sensöründen Veri Okuma</h3>
+            <pre><code class="language-python">
+# Su pompasını çalıştırma
+import time
+
+PUMP_PIN = 18
+GPIO.setup(PUMP_PIN, GPIO.OUT)
+
+def calistir_pompa():
+    GPIO.output(PUMP_PIN, GPIO.HIGH) # Pompa çalıştır
+    time.sleep(5) # 5 saniye çalıştır
+    GPIO.output(PUMP_PIN, GPIO.LOW) # Pompa kapat
+calistir_pompa()
+            </code></pre>
+        </section>
+    </main>
+
+    <!-- Prism.js JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>

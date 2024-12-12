@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunum ve Poster</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="teknik-detaylar.html">Teknik Detaylar</a></li>
+                <li><a href="proje-surecleri.html">Proje Süreçleri</a></li>
+                <li><a href="galeri.html">Galeri</a></li>
+                <li><a href="sunuf-poster.html">Sunum ve Poster</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Sunum ve Poster</h1>
+        
+        <!-- Resimler -->
+        <section>
+            <h2>Posterin Görselleri</h2>
+            <div class="gallery">
+                <img src="assets/images/deniz.jpg" alt="Poster 1" class="zoomable">
+                <img src="assets/images/5.jpg" alt="Poster 2" class="zoomable">
+                <img src="assets/images/6.jpg" alt="Poster 3" class="zoomable">
+            </div>
+        </section>
+        
+        <!-- PDF Dosyaları -->
+        <section>
+            <h2>İndirilebilir PDF'ler</h2>
+            <ul class="pdf-list">
+                <li><a href="assets/pdf/pdf1.pdf" download="Proje_Sunum_1.pdf">Proje Sunum 1</a></li>
+                <li><a href="assets/pdf/pdf2.pdf" download="Proje_Sunum_2.pdf">Proje Sunum 2</a></li>
+                <li><a href="assets/pdf/pdf3.pdf" download="Proje_Sunum_3.pdf">Proje Sunum 3</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Modal Yapısı -->
+    <div id="image-modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-image">
+        <div id="caption"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
