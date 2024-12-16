@@ -47,20 +47,74 @@
         <section>
             <h2>Kısa Kod Parçacıkları ve Algoritma</h2>
             <p>Burada proje için kullanılan algoritma ve kod parçacıkları yer almaktadır:</p>
-            <h3 style="text-align: left; margin-bottom: 5px;">Nem Sensöründen Veri Okuma</h3>
+            <h3 style="text-align: left; margin-bottom: 5px;">Raspberry Pi Kodları</h3>
             <pre><code class="language-python">
-# Nem sensöründen veri okuma
-import RPi.GPIO as GPIO
+    import RPi.GPIO as GPIO
+    import time
+    import requests
 
-GPIO.setmode(GPIO.BCM)
-SENSOR_PIN = 21
+    # Pin ayarları
+    RELAY_PIN = 17  # Röle için GPIO pini
+    MOISTURE_SENSOR_PIN = 4  # Nem sensörü için GPIO pini
+    MOISTURE_THRESHOLD = 300  # Nem sensörünün okuma eşiği
 
-GPIO.setup(SENSOR_PIN, GPIO.IN)
+    # API ayarları
+    API_URL = "https://yourwebsite.com/api/sulama"  # Verilerin gönderileceği URL
 
-if GPIO.input(SENSOR_PIN):
-    print("Toprak kuru, sulama başlatılıyor.")
-else:
-    print("Toprak nemli, sulama gerekli değil.")
+    # GPIO ayarları
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(RELAY_PIN, GPIO.OUT)
+    GPIO.output(RELAY_PIN, GPIO.HIGH)  # Röleyi başlangıçta kapalı yapıyoruz
+
+    # Nem sensöründen veri okuma (örnek: analog veri okuyucu bir modülünüz varsa kullanabilirsiniz)
+    def read_moisture():
+        # Örnek bir okuma simülasyonu, analog okuma yapabilen bir modül kullanılabilir (örneğin ADS1115)
+        # Bu kısımda gerçek okuma işlemini entegre etmeniz gerekebilir.
+        return 400  # Simüle edilmiş nem seviyesi
+
+    # Verileri API'ye gönderme
+    def send_data_to_api(moisture_level, pump_status):
+        try:
+            payload = {
+                "moisture_level": moisture_level,
+                "pump_status": pump_status
+            }
+            response = requests.post(API_URL, json=payload)
+            if response.status_code == 200:
+                print("Veriler başarıyla gönderildi.")
+            else:
+                print(f"API hatası: {response.status_code}, {response.text}")
+        except Exception as e:
+            print(f"Veri gönderim hatası: {e}")
+
+    try:
+        while True:
+            # Nem seviyesini oku
+            moisture_level = read_moisture()
+            print(f"Nem Seviyesi: {moisture_level}")
+
+            # Nem seviyesi eşikten düşükse su pompasını çalıştır
+            if moisture_level < MOISTURE_THRESHOLD:
+                print("Nem seviyesi düşük! Su pompası çalıştırılıyor...")
+                GPIO.output(RELAY_PIN, GPIO.LOW)  # Röleyi aktif hale getir
+                pump_status = "active"
+                time.sleep(5)  # 5 saniye boyunca su pompasını çalıştır
+                GPIO.output(RELAY_PIN, GPIO.HIGH)  # Röleyi kapat
+            else:
+                print("Nem seviyesi yeterli. Su pompası çalışmıyor.")
+                pump_status = "inactive"
+
+            # Verileri API'ye gönder
+            send_data_to_api(moisture_level, pump_status)
+
+            # Bir sonraki ölçüm için bekle
+            time.sleep(10)
+
+    except KeyboardInterrupt:
+        print("Çıkış yapılıyor...")
+
+    finally:
+        GPIO.cleanup()
             </code></pre>
             
             <h3 style="text-align: left; margin-bottom: 5px;">Nem Sensöründen Veri Okuma</h3>
