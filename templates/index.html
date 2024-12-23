@@ -19,7 +19,6 @@
         </nav>
     </header>
     <main>
-        
         <h1>Proje Tanıtımı</h1>
         <p>
             Bu proje, akıllı sulama sistemleri geliştirmeyi hedeflemektedir. Proje süresince Raspberry Pi kullanarak nem sensörlerinden veri okuma ve su pompasını kontrol etme üzerine çalışılmıştır.
@@ -64,9 +63,29 @@
                 <p>Görev: -------</p>
             </div>
         </div>
+
         <h1>Smart Irrigation System</h1>
         <p>Soil Moisture: {{ data['soil_moisture'] }}</p>
         <p>Water Pump: {{ data['water_pump'] }}</p>
+
+        <!-- Yeni Eklenen Alan -->
+        <h2>Durum</h2>
+        <p><strong>Not:</strong> C tuşuna basarsanız "Toprak kuru, valf çalışıyor" yazacak, V tuşuna basarsanız "Toprak ıslak, valf çalışmıyor" yazacak.</p>
+        <div id="output">Toprak durumu burada görünecek.</div>
     </main>
+
+    <script>
+        // 'C' tuşuna basıldığında, "Toprak kuru, valf çalışıyor" mesajını yazdır.
+        // 'V' tuşuna basıldığında, "Toprak ıslak, valf çalışmıyor" mesajını yazdır.
+        
+        window.addEventListener('keydown', function(event) {
+            const outputDiv = document.getElementById('output');
+            if (event.key === 'c' || event.key === 'C') {
+                outputDiv.textContent = 'Toprak kuru, valf çalışıyor';
+            } else if (event.key === 'v' || event.key === 'V') {
+                outputDiv.textContent = 'Toprak ıslak, valf çalışmıyor';
+            }
+        });
+    </script>
 </body>
 </html>
