@@ -64,12 +64,10 @@
             </div>
         </div>
 
+        <div id="output">Toprak durumu burada görünecek.</div>
     </main>
 
-    <script>
-        // 'C' tuşuna basıldığında, "Toprak kuru, valf çalışıyor" mesajını yazdır.
-        // 'V' tuşuna basıldığında, "Toprak ıslak, valf çalışmıyor" mesajını yazdır.
-        
+    <script>        
         window.addEventListener('keydown', function(event) {
             const outputDiv = document.getElementById('output');
             if (event.key === 'c' || event.key === 'C') {
