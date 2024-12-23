@@ -1,22 +1,21 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, send_from_directory
 import os
-from flask import Flask
 
-app = Flask(__name__)
+app = Flask(__name__,
+            static_folder='assets',  # Burada assets dizini statik dosya klasörü olarak belirleniyor
+            static_url_path='/assets')  # Yani statik dosyalara /assets/ yoluyla erişilecek
 
 # Geçici veri saklama (veritabanı olmadığında)
 data = {"soil_moisture": "Dry", "water_pump": "OFF"}
 
 @app.route('/')
 def home():
-    return render_template('index.html', data=data)
+    return render_template('index.html')
 
-@app.route('/update', methods=['POST'])
-def update_data():
-    global data
-    data['soil_moisture'] = request.json.get('soil_moisture', data['soil_moisture'])
-    data['water_pump'] = request.json.get('water_pump', data['water_pump'])
-    return jsonify({"status": "success"})
+# Statik dosyaların erişilebileceği yer
+@app.route('/assets/<path:filename>')
+def download_file(filename):
+    return send_from_directory(os.path.join(app.root_path, 'assets'), filename)
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
