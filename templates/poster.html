@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunum ve Poster</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Ana Sayfa</a></li>
+                <li><a href="teknik-detaylar.html">Teknik Detaylar</a></li>
+                <li><a href="galeri.html">Proje Süreçleri</a></li>
+                <li><a href="sunuf-poster.html">Poster</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Sunum ve Poster</h1>
+        
+        <!-- Resimler -->
+        <section>
+            <h2>Posterin Görselleri</h2>
+            <div class="gallery">
+                <img src="../assets/images/ProjePoster.jpeg" alt="Poster" class="zoomable">
+            </div>
+        </section>
+        
+        <!-- PDF Dosyaları -->
+        <section>
+            <h2>İndirilebilir PDF'ler</h2>
+            <ul class="pdf-list">
+                <li><a href="../assets/pdf/Poster.pdf" download="Poster.pdf">Proje Poster 1</a></li>
+                <li><a href="../assets/pdf/Proje raporu.pdf" download="ProjeRapor.pdf">Proje Rapor</a></li>
+                <li><a href="../assets/pdf/Proje raporu.docx" download="ProjeRapor.docx">Proje Rapor Word</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Modal Yapısı -->
+    <div id="image-modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-image">
+        <div id="caption"></div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>

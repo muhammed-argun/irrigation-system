@@ -13,7 +13,7 @@ Bu proje, akıllı sulama sistemleri geliştirmeyi hedeflemektedir. Proje süres
 - [Muhammed Argun - 2022123153](https://github.com/muhammed-argun)
 - [Hudalfa Yasin Koç - 2022123068](https://github.com/HudalfaKoc6462)
 - [Deniz Akbulut - 2022123136]()
-- [Mehmet Yağlı - ----------](https://github.com/Zaseon)
+- [Mehmet Yağlı - 2022123125](https://github.com/Zaseon)
 - [İsmail Kaan Sert - 2022123110](https://github.com/Kaandiye)
 - [Murat Eren Zoroğlu - 2022123091]()
 
